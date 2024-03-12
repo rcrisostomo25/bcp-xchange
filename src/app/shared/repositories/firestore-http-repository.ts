@@ -8,6 +8,7 @@ import { FirestoreRepository } from '../domain/firestore-repository';
 import { orderBy, query } from 'firebase/firestore';
 import { ITeamMembers } from '../models/team-members.model';
 import { ITicket } from '../models/ticket.model';
+import { IAgileInfo } from '../models/agile-info.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,13 @@ export class FirestoreHttpRepository implements FirestoreRepository {
     return collectionData(colQuery, {
       idField: 'id',
     }) as Observable<ITeamMembers[]>;
+  }
+
+  getAgileInfoCollection(path: string): Observable<IAgileInfo[]> {
+    const itemCollection = collection(this.firestore, path);
+    const colQuery = query(itemCollection, orderBy('descripcion', 'asc'));
+    return collectionData(colQuery, {
+      idField: 'id',
+    }) as Observable<IAgileInfo[]>;
   }
 }

@@ -16,5 +16,19 @@ export const routes: Routes = [
     children: [
         { path: '', loadChildren: () => import('./feature/tickets-mvp/tickets-mvp.routes').then(m => m.TICKETSMVP_ROUTES) },
     ]
+  },
+  {
+    path: 'agile-info',
+    component: LayoutComponent,
+    children: [
+        { path: '', loadChildren: () => import('./feature/agile-info/agile-info.routes').then(m => m.AGILEINFO_ROUTES) },
+    ]
+  },
+  {
+    path: 'releases',
+    component: LayoutComponent,
+    children: [
+        { path: '', loadChildren: () => import('./feature/releases/releases.routes').then(m => m.RELEASES_ROUTES) },
+    ]
   }
 ];
