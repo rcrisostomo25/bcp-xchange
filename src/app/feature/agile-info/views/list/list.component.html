@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Agile info</h4>
+            <p class="card-description"> Información ágil
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th> Descripción </th>
+                    <th> URL </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of agilesInfo; track $index) {
+                      <tr>
+                        <td> {{ item.descripcion }} </td>
+                        <td> <a href="{{ item.url }}" target="_blank">{{ item.url }}</a> </td>
+                      </tr>
+                    }
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
